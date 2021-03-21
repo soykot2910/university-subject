@@ -1,0 +1,32 @@
+USER SYMBOL by DSCH 2.7f
+DATE 1/1/2007 1:07:30 AM
+SYM  #MAC
+BB(0,0,25,40)
+TITLE 10 -2  #MAC
+MODEL 6000
+REC(5,5,15,30)
+PIN(0,10,0.00,0.00)M
+PIN(0,20,0.00,0.00)A
+PIN(0,30,0.00,0.00)C
+PIN(25,10,2.00,1.00)D
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,30,5,30)
+LIG(20,10,25,10)
+LIG(5,5,5,35)
+LIG(5,5,20,5)
+LIG(20,5,20,35)
+LIG(20,35,5,35)
+VLG module MAC( M,A,C,D);
+VLG  input M,A,C;
+VLG  output D;
+VLG  nmos #(38) nmos(w2,vss,M); // 1.0u 1u
+VLG  nmos #(38) nmos(w2,w3,A); // 2u 1u
+VLG  nmos #(10) nmos(w3,vss,C); // 2.0u 1u
+VLG  pmos #(17) pmos(w6,vdd,M); // 6u 1u
+VLG  pmos #(38) pmos(w2,w6,A); // 6.0u 1u
+VLG  pmos #(38) pmos(w2,w6,C); // 6u 1u
+VLG  nmos #(17) nmos(D,vss,w2); // 1.0u 1u
+VLG  pmos #(17) pmos(D,vdd,w2); // 2.0u 1u
+VLG endmodule
+FSYM

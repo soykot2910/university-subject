@@ -1,0 +1,21 @@
+// DSCH 2.7f
+// 16-10-10 01.24.13
+// J:\EDA\EDrive\Applications\VLSI\MicroWind_DSCH\3.1\MicroWind3.1_FULL\mw-tools\Export dsch2\LAB5.sch
+
+module LAB5( A,B,Y);
+ input A,B;
+ output Y;
+ nmos #(24) nmos(Y,w1,A); // 1.0u 0.12u
+ pmos #(24) pmos(Y,vdd,A); // 2.0u 0.12u
+ pmos #(24) pmos(Y,vdd,B); // 2.0u 0.12u
+ nmos #(10) nmos(w1,vss,B); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#2000 A=~A;
+#4000 B=~B;
+
+// Simulation parameters
+// A CLK 20.000 20.000
+// B CLK 40.000 40.000

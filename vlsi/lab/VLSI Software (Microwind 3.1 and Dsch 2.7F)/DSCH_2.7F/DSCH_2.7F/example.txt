@@ -1,0 +1,21 @@
+// DSCH 2.7f
+// 10/22/2020 7:54:32 PM
+// example
+
+module example( A,B,F);
+ input A,B;
+ output F;
+ pmos #(24) pmos(F,vdd,A); // 2.0u 0.12u
+ pmos #(24) pmos(F,vdd,B); // 2.0u 0.12u
+ nmos #(24) nmos(F,w4,B); // 1.0u 0.12u
+ nmos #(10) nmos(w4,vss,A); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20

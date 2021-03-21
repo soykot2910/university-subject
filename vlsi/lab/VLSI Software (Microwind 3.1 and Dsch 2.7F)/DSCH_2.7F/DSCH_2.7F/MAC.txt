@@ -1,0 +1,27 @@
+// DSCH 2.7f
+// 1/1/2007 1:07:58 AM
+// C:\Documents and Settings\DIU\Desktop\VLSI\DSCH_2.7F\MAC.sch
+
+module MAC( M,A,C,D);
+ input M,A,C;
+ output D;
+ nmos #(38) nmos(w2,vss,M); // 1.0u 1u
+ nmos #(38) nmos(w2,w3,A); // 2u 1u
+ nmos #(10) nmos(w3,vss,C); // 2.0u 1u
+ pmos #(17) pmos(w6,vdd,M); // 6u 1u
+ pmos #(38) pmos(w2,w6,A); // 6.0u 1u
+ pmos #(38) pmos(w2,w6,C); // 6u 1u
+ nmos #(17) nmos(D,vss,w2); // 1.0u 1u
+ pmos #(17) pmos(D,vdd,w2); // 2.0u 1u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 M=~M;
+#2000 A=~A;
+#4000 C=~C;
+
+// Simulation parameters
+// M CLK 10 10
+// A CLK 20 20
+// C CLK 40 40

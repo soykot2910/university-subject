@@ -1,0 +1,33 @@
+// DSCH 2.7f
+// 1/1/2007 12:14:56 AM
+// C:\Documents and Settings\DIU\Desktop\VLSI\DSCH_2.7F\4ipAdd.sch
+
+module 4ipAdd( A,B,C,D,C1,C0,S);
+ input A,B,C,D;
+ output C1,C0,S;
+ wire w13,w14,w15;
+ xor #(26) sub_1(w13,w1,w2);
+ and #(15) sub_2(w14,w2,w1);
+ and #(15) sub_3(w15,w3,w13);
+ or #(15) sub_4(C1,w15,w14);
+ xor #(15) sub_5(C0,w13,w3);
+ and #(22) sub_6(w2,D,C);
+ xor #(22) sub_7(w8,C,D);
+ and #(22) sub_8(w3,w8,w9);
+ xor #(15) sub_9(S,w9,w8);
+ and #(22) sub_10(w1,B,A);
+ xor #(22) sub_11(w9,A,B);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+#4000 C=~C;
+#8000 D=~D;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20
+// C CLK 40 40
+// D CLK 80 80

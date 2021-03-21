@@ -1,0 +1,24 @@
+// DSCH 2.7f
+// 1/1/2007 1:08:25 AM
+// C:\Documents and Settings\DIU\Desktop\VLSI\DSCH_2.7F\FA.sch
+
+module FA( A,B,Cin,Co,S);
+ input A,B,Cin;
+ output Co,S;
+ xor #(23) xor(w6,A,B);
+ and #(16) and(w7,B,A);
+ and #(16) and(w8,Cin,w6);
+ or #(16) or(Co,w8,w7);
+ xor #(16) xor(S,w6,Cin);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+#4000 Cin=~Cin;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20
+// Cin CLK 40 40

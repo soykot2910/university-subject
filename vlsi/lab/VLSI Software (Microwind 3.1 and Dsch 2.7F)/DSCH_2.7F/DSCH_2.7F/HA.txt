@@ -1,0 +1,19 @@
+// DSCH 2.7f
+// 1/1/2007 12:42:05 AM
+// C:\Documents and Settings\DIU\Desktop\VLSI\DSCH_2.7F\HA.sch
+
+module HA( A,B,Co,S);
+ input A,B;
+ output Co,S;
+ and #(16) and(Co,B,A);
+ xor #(16) xor(S,A,B);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20

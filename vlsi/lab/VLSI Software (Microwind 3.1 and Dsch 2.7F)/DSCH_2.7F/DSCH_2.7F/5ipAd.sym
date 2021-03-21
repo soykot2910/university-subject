@@ -1,0 +1,47 @@
+USER SYMBOL by DSCH 2.7f
+DATE 1/1/2007 12:53:02 AM
+SYM  #5ipAd
+BB(0,0,20,60)
+TITLE 10 -2  #5ipAd
+MODEL 6000
+REC(5,5,10,50)
+PIN(0,10,0.00,0.00)A
+PIN(0,20,0.00,0.00)B
+PIN(0,30,0.00,0.00)C
+PIN(0,40,0.00,0.00)D
+PIN(0,50,0.00,0.00)E
+PIN(20,30,2.00,1.00)S
+PIN(20,10,2.00,1.00)C1
+PIN(20,20,2.00,1.00)C0
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,30,5,30)
+LIG(0,40,5,40)
+LIG(0,50,5,50)
+LIG(15,30,20,30)
+LIG(15,10,20,10)
+LIG(15,20,20,20)
+LIG(5,5,5,55)
+LIG(5,5,15,5)
+LIG(15,5,15,55)
+LIG(15,55,5,55)
+VLG module 5ipAd( A,B,C,D,E,S,C1,C0);
+VLG  input A,B,C,D,E;
+VLG  output S,C1,C0;
+VLG  wire w14,w15,w16,w17,w18,w19;
+VLG  and #(22) sub_1(w6,B,A);
+VLG  xor #(22) sub_2(w7,A,B);
+VLG  and #(22) sub_3(w10,w9,w7);
+VLG  xor #(15) sub_4(S,w7,w9);
+VLG  xor #(26) sub_5(w14,w6,w11);
+VLG  and #(15) sub_6(w15,w11,w6);
+VLG  and #(15) sub_7(w16,w10,w14);
+VLG  or #(15) sub_8(C1,w16,w15);
+VLG  xor #(15) sub_9(C0,w14,w10);
+VLG  xor #(26) sub_10(w17,C,D);
+VLG  and #(15) sub_11(w18,D,C);
+VLG  and #(15) sub_12(w19,E,w17);
+VLG  or #(22) sub_13(w11,w19,w18);
+VLG  xor #(22) sub_14(w9,w17,E);
+VLG endmodule
+FSYM
